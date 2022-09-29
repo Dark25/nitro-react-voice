@@ -10,7 +10,7 @@ export const BannersMenuView: FC<{}> = props =>
     const [ isVisible, setIsVisible ] = useState(false)
 
     function changeBanner(bannerId){
-        fetch("https://int.hgalaxy.fun/?type=changebanner&banner=" + bannerId + "&sso=" + sso);
+        fetch("https://swfs.akiled.org/int/index.php?type=changebanner&banner=" + bannerId + "&sso=" + sso);
         setIsVisible(false);
     }
 
@@ -53,27 +53,27 @@ export const BannersMenuView: FC<{}> = props =>
                     </div>
                     <Row>
                         <Col md={2} style={{ marginBottom: 20 }}>
-                            <img src="https://swfs.hgalaxy.net/banners/banner0.png" style={{ marginLeft: 2 }} /><br/>
+                            <img src="https://swfs.akiled.org/int/banners/banner0.png" style={{ marginLeft: 2 }} /><br/>
                             <button onClick={ e => changeBanner(0) } className="btn btn-success btn-sm">Seleccionar</button>
                         </Col>
                         <Col md={2} style={{ marginBottom: 20 }}>
-                            <img src="https://swfs.hgalaxy.net/banners/banner1.png" style={{ marginLeft: 2 }} /><br/>
+                            <img src="https://swfs.akiled.org/int/banners/banner1.png" style={{ marginLeft: 2 }} /><br/>
                             <button onClick={ e => changeBanner(1) } className="btn btn-success btn-sm">Seleccionar</button>
                         </Col>
                         <Col md={2} style={{ marginBottom: 20 }}>
-                            <img src="https://swfs.hgalaxy.net/banners/banner2.png" style={{ marginLeft: 2 }} /><br/>
+                            <img src="https://swfs.akiled.org/int/banners/banner2.png" style={{ marginLeft: 2 }} /><br/>
                             <button onClick={ e => changeBanner(2) } className="btn btn-success btn-sm">Seleccionar</button>
                         </Col>
                         <Col md={2} style={{ marginBottom: 20 }}>
-                            <img src="https://swfs.hgalaxy.net/banners/banner3.png" style={{ marginLeft: 2 }} /><br/>
+                            <img src="https://swfs.akiled.org/int/banners/banner3.png" style={{ marginLeft: 2 }} /><br/>
                             <button onClick={ e => changeBanner(3) } className="btn btn-success btn-sm">Seleccionar</button>
                         </Col>
                         <Col md={2} style={{ marginBottom: 20 }}>
-                            <img src="https://swfs.hgalaxy.net/banners/banner4.png" style={{ marginLeft: 2 }} /><br/>
+                            <img src="https://swfs.akiled.org/int/banners/banner4.png" style={{ marginLeft: 2 }} /><br/>
                             <button onClick={ e => changeBanner(4) } className="btn btn-success btn-sm">Seleccionar</button>
                         </Col>
                         <Col md={2} style={{ marginBottom: 20 }}>
-                            <img src="https://swfs.hgalaxy.net/banners/banner5.png" style={{ marginLeft: 2 }} /><br/>
+                            <img src="https://swfs.akiled.org/int/banners/banner5.png" style={{ marginLeft: 2 }} /><br/>
                             <button onClick={ e => changeBanner(5) } className="btn btn-success btn-sm">Seleccionar</button>
                         </Col>
                     </Row>

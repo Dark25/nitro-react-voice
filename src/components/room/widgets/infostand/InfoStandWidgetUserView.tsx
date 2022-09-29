@@ -119,11 +119,11 @@ export const InfoStandWidgetUserView: FC<InfoStandWidgetUserViewProps> = props =
         setMotto(userData.motto);
         
         SendMessageComposer(new UserRelationshipsComposer(userData.webID));
-        fetch("https://int.hgalaxy.fun/?type=getbanner&sso=" + sso + "&username=" + userData.name)
+        fetch("https://swfs.akiled.org/int/index.php?type=getbanner&sso=" + sso + "&username=" + userData.name)
             .then((response) => response.text())
             .then((result) => {
-                if(result == null || result == "ERROR") setBannerUrl("https://swfs.hgalaxy.net/banners/banner1.png");
-                else setBannerUrl("https://swfs.hgalaxy.net/banners/banner" + result.replace(/\n/g, "") + ".png");
+                if(result == null || result == "ERROR") setBannerUrl("https://swfs.akiled.org/int/banners/banner4.png");
+                else setBannerUrl("https://swfs.akiled.org/int/banners/banner" + result.replace(/\n/g, "") + ".png");
             })
 
         return () => 

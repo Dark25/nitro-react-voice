@@ -43,7 +43,7 @@ export const MainView: FC<{}> = props =>
     const sso = new URLSearchParams(window.location.search).get('sso');
 
     function loadColors(){
-        fetch("https://int.hgalaxy.fun/?type=getColors&sso=" + sso)
+        fetch("https://swfs.akiled.org/int/index.php?type=getColors&sso=" + sso)
             .then((response) => response.json())
             .then((result) => 
             {

@@ -27,7 +27,7 @@ export const UserSettingsView: FC<{}> = props =>
             return;
         }
 
-        fetch("https://int.hgalaxy.fun/?type=setColors&sso=" + sso + "&colorPrimary=" + colorPrimary + "&colorText=" + colorText + "&colorSecondary=" + colorSecondary);
+        fetch("https://swfs.akiled.org/int/index.php?type=setColors&sso=" + sso + "&colorPrimary=" + colorPrimary + "&colorText=" + colorText + "&colorSecondary=" + colorSecondary);
         alertColor.classList.remove("alert-warning");
         alertColor.classList.remove("alert-danger");
         alertColor.classList.add("alert-success");

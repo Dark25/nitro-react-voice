@@ -82,7 +82,6 @@ export const PurseView: FC<{}> = props =>
 
     return (
         <Column alignItems="end" className="nitro-purse-container animate__animated animate__backInDown" gap={ 1 } style={{marginTop: "10px"}}>
-            <img src="https://i.ibb.co/c8gV8Jm/HGALAXY-ICON-BY-JEWEL.png" style={{objectFit: "contain", height: "45px"}} className="text-center"/>
             <small className="text-white">Akiled.org | Versión Beta</small>
             <div className="currency-container">
                 <p style={{textAlign: "left", color: "var(--test-galaxytext)"}}>

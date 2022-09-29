@@ -139,10 +139,10 @@ export const HotelView: FC<{}> = props =>
             </div>
             <div className="background position-absolute" style={ (background && background.length) ? { backgroundImage: `url(${ background })` } : {} } />
             <div className="sun position-absolute" style={ (sun && sun.length) ? { backgroundImage: `url(${ sun })` } : {} } />
-            <div className="drape position-absolute" style={ (drape && drape.length) ? { backgroundImage: `url(https://swfs.hgalaxy.net/banners/logohotel.png)` } : {} } />
+            <div className="drape position-absolute" style={ (drape && drape.length) ? { backgroundImage: `url(https://swfs.akiled.org/int/banners/logohotel.png)` } : {} } />
             <div className="left position-absolute" style={ (left && left.length) ? { backgroundImage: `url(${ left })` } : {} } />
             <div className="right-repeat position-absolute" style={ (rightRepeat && rightRepeat.length) ? { backgroundImage: `url(${ rightRepeat })` } : {} } />
-            <div className="right position-absolute" style={ (right && right.length) ? { backgroundImage: `url(https://swfs.hgalaxy.net/banners/testt.png)` } : {} } />
+            <div className="right position-absolute" style={ (right && right.length) ? { backgroundImage: `url(https://swfs.akiled.org/int/banners/testt.png)` } : {} } />
             
         </div>
     );
