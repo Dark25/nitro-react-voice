@@ -19,7 +19,7 @@ export const RoomToolsWidgetView: FC<{}> = props =>
     const sso = new URLSearchParams(window.location.search).get('sso');
 
     function openBawTool(){
-        fetch("https://int.hgalaxy.fun/?type=builderTool&sso="+sso);
+        fetch("https://swfs.akiled.org/int/index.php?type=builderTool&sso="+sso);
     }
 
     const handleToolClick = (action: string) =>

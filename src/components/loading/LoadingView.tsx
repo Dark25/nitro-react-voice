@@ -129,6 +129,7 @@ export const LoadingView: FC<LoadingViewProps> = props =>
                 <Column fullHeight alignItems="center" justifyContent="end">
                     <Base className="connecting-duck animate__animated animate__pulse animate__faster animate__infinite" />
                     <Column size={ 6 } className="text-center py-4">
+                      
                         { isError && (message && message.length) ?
                             <Base className="fs-4 text-shadow">{ message }</Base>
                             :
