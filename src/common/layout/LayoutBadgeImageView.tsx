@@ -37,7 +37,7 @@ export const LayoutBadgeImageView: FC<LayoutBadgeImageViewProps> = props =>
 
         if(imageElement)
         {
-            newStyle.backgroundImage = `url('${ isGroup || isGrayscale ? imageElement.src : location.protocol + '//swfs.akiled.org/c_images/album1584/' + badgeCode }.gif')`;
+             newStyle.backgroundImage = `url('${ imageElement.src }')`;
             newStyle.width = imageElement.width;
             newStyle.height = imageElement.height;
 
