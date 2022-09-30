@@ -66,7 +66,7 @@ export function RoomChatFormatter(content: string, styleId: number): string
         content = "<img src='" + content + ".gif' style='max-width: 150px; object-fit: contain;'/>";
     }
 
-    if(content.includes("swfs.akiled.org/c_images/emojis/emoji")){
+    if(content.includes("https://swfs.hgalaxy.net/c_images/emojis/emoji")){
         content = "<img src='" + content + "'/>";
     }
 

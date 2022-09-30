@@ -13,15 +13,15 @@ export const ChatInputEmojisSelectorView: FC<{}> = props =>
 
     useEffect(() =>
     {
-        fetch("https://int.hgalaxy.fun/?type=getEmojis")
+        fetch("https://swfs.akiled.org/int/getEmojis.json")
         .then(response => response.json())
         .then((response) => { 
             setEmojis(response);
         })
     }, []);
 
-    function getEmojiImage(id){
-        return "https://swfs.hgalaxy.net/c_images/emojis/emoji" + id + ".png";
+    function getEmojiImage(emoji){
+        return emoji  ;
     }
 
     const sendEmoji = (event: MouseEvent<HTMLElement>, key: string) =>
@@ -81,9 +81,8 @@ export const ChatInputEmojisSelectorView: FC<{}> = props =>
                                     <Grid columnCount={ 4 } overflow="auto">
                                         {emojis.map((emoji) => 
                                             <>
-                                            <Base className="text-center" key={ emoji.id } onClick={(e) => sendEmoji(e, emoji.key)}>
-                                                <img style={{height: "22px", width: "22px"}} src={getEmojiImage(emoji.id)} /><br/>
-                                                <span className="badge bg-dark">{emoji.key}</span>
+                                            <Base className="text-center" key={ emoji.emoji } onClick={(e) => sendEmoji(e, emoji.emoji)}>
+                                            <a>{getEmojiImage(emoji.emoji)}</a><br/>
                                             </Base>
                                             </>
                                         )}
