@@ -194,6 +194,15 @@ export const ChatInputView: FC<{}> = props =>
 
         if(text.length <= maxChatLength)
         {
+            const re = /%CC%/g
+            const hasZalgo = txt => re.test(encodeURIComponent(txt));
+
+            if (hasZalgo(text))
+            {
+                setChatValue('');
+                return;
+            }
+            
             if(needsChatStyleUpdate)
             {
                 GetSessionDataManager().sendChatStyleUpdate(chatStyleId);
@@ -441,7 +450,7 @@ export const ChatInputView: FC<{}> = props =>
     return (
         createPortal(
             <>
-            <div id="submenuChat" className="animate__animated animate__fadeInUp" style={{paddingLeft: "16px", paddingRight: "13px", paddingTop: "11px", paddingBottom: "7px", position: "absolute", backgroundColor: "rgba(43, 43, 43, 0.8)", top: "-48px", borderRadius: "7px", display: "none", border: "1px #fff solid"}}> 
+            <div id="submenuChat" className="animate__animated animate__fadeInUp animate__faster" style={{paddingLeft: "16px", paddingRight: "13px", paddingTop: "11px", paddingBottom: "7px", position: "absolute", backgroundColor: "rgba(43, 43, 43, 0.8)", top: "-48px", borderRadius: "7px", display: "none", border: "1px #fff solid"}}> 
                 <ChatInputStyleSelectorView chatStyleId={ chatStyleId } chatStyleIds={ chatStyleIds } selectChatStyleId={ selectChatStyleId } />
                 <ChatInputStickersSelectorView /> 
                 <ChatInputEmojisSelectorView />

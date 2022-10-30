@@ -64,7 +64,7 @@ export const HotelView: FC<{}> = props =>
             <div className="container h-100 py-3 overflow-hidden landing-widgets">
                 <div className="row h-100" style={{marginLeft: "100px", marginTop: "50px"}}>
                     { !loading && 
-                        <div className="col-md-10 animate__animated animate__fadeInDown">
+                        <div className="col-md-10 animate__animated animate__fadeInDown animate__faster">
                             <div className="card" style={{backgroundColor: "var(--test-galaxy)", padding: "20px", borderRadius: "5px", marginBottom: "15px"}}>
                                 <div className="row">
                                     <div className="col-md-10">

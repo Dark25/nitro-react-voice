@@ -120,7 +120,7 @@ export const FriendsListView: FC<{}> = props =>
 
     return (
         <>
-            <NitroCardView className="nitro-friends animate__animated animate__bounceInUp" uniqueKey="nitro-friends" theme="primary-slim">
+            <NitroCardView className="nitro-friends animate__animated animate__bounceInUp animate__faster" uniqueKey="nitro-friends" theme="primary-slim">
                 <NitroCardHeaderView headerText={ LocalizeText('friendlist.friends') } onCloseClick={ event => setIsVisible(false) } />
                 <NitroCardContentView overflow="hidden" gap={ 1 } className="text-black p-0">
                     <NitroCardAccordionView fullHeight overflow="hidden">

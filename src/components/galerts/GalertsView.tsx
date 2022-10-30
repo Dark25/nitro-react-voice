@@ -116,7 +116,7 @@ export const GalertsView: FC<{}> = props =>
     return (
         <>
             { isVisible &&
-                <NitroCardView style={{width: "350px"}} className="animate__animated animate__flipInX">
+                <NitroCardView style={{width: "350px"}} className="animate__animated animate__flipInX animate__faster">
                 <NitroCardHeaderView headerText={headerText}  onCloseClick={ event => setIsVisible(false) }/>
                 <NitroCardContentView>
                    <div>

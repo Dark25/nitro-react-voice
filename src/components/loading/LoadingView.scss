@@ -1,9 +1,10 @@
 .nitro-loading {
-    position: relative;
-    background: rgb(42, 167, 224);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,194,255,1) 50%, rgba(255,255,255,1) 100%);
+    background: repeat-x,url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUIAAADMCAMAAAAxvlqyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///wAAAFXC034AAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAOwQAADsEBuJFr7QAAAsNJREFUeF7t3eFO4zAUBeHk/V+aImhLVZo4Gdu5155P2h8rrag9OSvtggrLKsiEmAkxE2ImxEyImRAzIWZCzISYCTETYibETIiZEDMhZkLMhFikhEkfpyvETIiZECtOaOtPLIO5QqyszLIuy+3X7+/0otkK5+nd6qbfq33q07PSqxz9MMV/vtkHTm+emzZjQsyEmAkxE2IfE9q2lKUwE2KzJ6xw/8kTvv4/9BxXiM2esAITYibEcMIGzyDZY3WFWMSErpDJ95UuV4glO25ErhCLetxEGd+PmmwD13sLVuNzF3NxhZjBMBNiJsRMiJkQMyFmQmzyhDWu7woxV4h1SxjqWf0cptInyEPdrL8a15884Vl/s7lCzBViJsRMiJkQy5Gw6JRXXWXjdePUjf0lschnewp9yhwJQzMhZkLMhJgJMRNiJsRMiJkQMyFmQsyEmAkxE2ImLLAdyYQFTNhYlISJH6UrxEyImRAzIWZCrGXCSR5Pw2vO8rZcV4hNcs2WihLaectEdUqueibH6RVO1H7Hfol83wGqs9Mr1J11MFeIWQczIWZCzISYCTETYibETIiZEMuZMNSpXSFmQsyEmAkxE2ImxEyI1U843UPZuLADLWMnzISYCTETYibETIiZEDMhZkLsyoSVX/uqq7hCzISYCTETYoMn7HG9sRN2eRugK8QGT9iDCTETYibEsicMcH5XiJ1JGCn78bNUP33qFcZ4n2/qhDcBzp89YQCuEGt+hPFn7l/kPbuFuiYc83m5QswVYv1uNez3u3GF2Ji36soVYq4QMyFmQsyEmAkxE2ImxEyImRALmjDTk/101mvvkOrHA7hCLNNZgzIhZkLMhA9nU5gQMyF2KKG9/3OkSqp/8N61P7IrxKyCXZVwoEfnCjETYibETIiZEDMhZkLMhJgJMRNiJsRMiJkQMyFmQsyE0Lp+AQHMACuJOf5OAAAAAElFTkSuQmCC),
+    linear-gradient(180deg,#010056 1%,#060026);
     z-index: 100;
-
+    animation: clouds 40s linear infinite;
+    box-shadow: inset 0 0 400px 130px #000;
+   
     .connecting-duck {
         position: absolute;
         top: 0;
@@ -52,6 +53,8 @@
             width: 190px;
             height: 104px;
         }
+       
+    
     }
 
     .nitro-logo {
@@ -74,4 +77,13 @@
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+@keyframes clouds {
+    0% {
+        background-position: bottom,0
+    }
+
+    to {
+        background-position: bottom,1440px
+    }
 }

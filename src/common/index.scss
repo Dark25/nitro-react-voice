@@ -524,7 +524,7 @@
     height: 20px;
     border-radius: $border-radius;
     overflow: hidden;
-    background: $primary;
+    background: #212529;
 
     &.large {
         height: 30px;
@@ -536,10 +536,10 @@
         transition: all 1s;
         border-radius: calc(#{$border-radius} / 2);
         background: repeating-linear-gradient(
-            $tertiary,
-            $tertiary 50%,
-            $quaternary 50%,
-            $quaternary 100%
+            #d6baa1,
+            #d6baa1 50%,
+            #b69b83 50%,
+            #b69b83 100%
         );
     }
 

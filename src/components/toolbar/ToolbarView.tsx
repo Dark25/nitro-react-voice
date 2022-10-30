@@ -74,7 +74,7 @@ export const ToolbarView: FC<{ isInRoom: boolean }> = props =>
             <TransitionAnimation type={ TransitionAnimationTypes.FADE_IN } inProp={ isMeExpanded } timeout={ 300 }>
                 <ToolbarMeView useGuideTool={ useGuideTool } unseenAchievementCount={ getTotalUnseen } setMeExpanded={ setMeExpanded } />
             </TransitionAnimation>
-            <Flex alignItems="center" justifyContent="between" gap={ 3 } className="nitro-toolbar py-1 px-3 animate__animated animate__backInUp" style={{marginBottom: "17px"}}>
+            <Flex alignItems="center" justifyContent="between" gap={ 3 } className="nitro-toolbar py-1 px-3 animate__animated animate__backInUp animate__faster" style={{marginBottom: "17px"}}>
                 <Flex gap={ 2 } alignItems="center">
                     <Flex alignItems="center" gap={ 2 } style={{ marginBottom: "3px",paddingTop: 2, paddingBottom: 2, paddingLeft: 10, paddingRight: 10}}>
                         <Flex style={{borderRadius: "50%", backgroundColor: "var(--test-galaxytwo)", padding: "26px"}} center pointer className={ 'navigation-item item-avatar icon-border ' + (isMeExpanded ? 'active ' : '') } onClick={ event => setMeExpanded(!isMeExpanded) }>

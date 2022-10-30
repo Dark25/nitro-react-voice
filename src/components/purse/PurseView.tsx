@@ -81,7 +81,7 @@ export const PurseView: FC<{}> = props =>
     if(!purse) return null;
 
     return (
-        <Column alignItems="end" className="nitro-purse-container animate__animated animate__backInDown" gap={ 1 } style={{marginTop: "10px"}}>
+        <Column alignItems="end" className="nitro-purse-container animate__animated animate__backInDown animate__faster" gap={ 1 } style={{marginTop: "10px"}}>
             <small className="text-white">akiled.org | Versión Beta</small>
             <div className="currency-container">
                 <p style={{textAlign: "left", color: "var(--test-galaxytext)"}}>

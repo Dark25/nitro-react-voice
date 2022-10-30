@@ -100,7 +100,7 @@ export const FriendsMessengerView: FC<{}> = props =>
     if(!isVisible) return null;
 
     return (
-        <NitroCardView className="nitro-friends-messenger animate__animated animate__bounceInDown" uniqueKey="nitro-friends-messenger" theme="primary-slim">
+        <NitroCardView className="nitro-friends-messenger animate__animated animate__bounceInDown animate__faster" uniqueKey="nitro-friends-messenger" theme="primary-slim">
             <NitroCardHeaderView headerText={ LocalizeText('messenger.window.title', [ 'OPEN_CHAT_COUNT' ], [ visibleThreads.length.toString() ]) } onCloseClick={ event => setIsVisible(false) } />
             <NitroCardContentView>
                 <Grid overflow="hidden">

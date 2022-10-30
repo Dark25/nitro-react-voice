@@ -118,7 +118,7 @@ export const InfoStandWidgetView: FC<{}> = props =>
     if(!infoStandEvent) return null;
 
     return (
-        <Column alignItems="end" className="nitro-infostand-container animate__animated animate__backInRight" style={{marginBottom: "20px"}}>
+        <Column alignItems="end" className="nitro-infostand-container animate__animated animate__backInRight animate__faster" style={{marginBottom: "20px"}}>
             { getInfostandView() }
         </Column>
     );

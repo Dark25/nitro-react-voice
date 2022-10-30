@@ -57,7 +57,7 @@ export const UpsideView: FC<{}> = (props) => {
   function getAlert(name, text, identifier) {
     return (
       <div
-        className="animate__animated animate__fadeInDown"
+        className="animate__animated animate__fadeInDown animate__faster"
         style={{
           padding: "10px",
           backgroundColor: "var(--test-galaxy)",
