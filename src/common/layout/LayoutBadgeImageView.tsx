@@ -37,7 +37,7 @@ export const LayoutBadgeImageView: FC<LayoutBadgeImageViewProps> = props =>
 
         if(imageElement)
         {
-             newStyle.backgroundImage = `url('${ imageElement.src }')`;
+            newStyle.backgroundImage = (isGroup || isGrayscale) ? imageElement.src : `url(${ GetConfiguration<string>('badge.asset.url').replace('%badgename%', badgeCode.toString()) })`;
             newStyle.width = imageElement.width;
             newStyle.height = imageElement.height;
 
