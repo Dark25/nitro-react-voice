@@ -12,9 +12,10 @@
     
         .nitro-purse-button {
             padding: 3px 2px;
-    
+            color: rgb(111, 111, 112);
             &:hover {
                 background-color: rgba($light, 0.1);
+                
             }
         }
     }
@@ -27,14 +28,20 @@
 
 .currency-container{
     background-color: var(--test-galaxy);
-    padding: 6px;
-    color: #000000;
+    padding: 5px;
+    color: #1a1d33;
     width: 130px;
     height: 30px;
     font-size: 15px;
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
+    border: 1px solid #191919;
+    box-shadow: 0 0 0 1pt #fff !important;
+
 }
 
 .currency-container-button{
     background-color: var(--test-galaxy);
+    border-radius: 0.5rem;
+    border: 1px solid #191919;
+    box-shadow: 0 0 0 1pt #fff !important;
 }

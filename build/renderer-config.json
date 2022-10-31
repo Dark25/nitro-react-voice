@@ -1,8 +1,8 @@
 {
-    "socket.url": "wss://socket.akiled.org:2096",
-    "asset.url": "https://swfs.akiled.org/nitro",
-    "image.library.url": "https://swfs.akiled.org/c_images/",
-    "hof.furni.url": "https://swfs.akiled.org/dcr/hof_furni",
+    "socket.url": "ws://localhost:2096",
+    "asset.url": "http://swfs.localhost/nitro",
+    "image.library.url": "http://swfs.localhost/c_images/",
+    "hof.furni.url": "http://swfs.localhost/dcr/hof_furni",
     "images.url": "${asset.url}/images",
     "gamedata.url": "${asset.url}/gamedata",
     "sounds.url": "${asset.url}/sounds/%sample%.mp3",
