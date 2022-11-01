@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useEffect, useRef } from 'react';
 import { AutoGrid } from '../../../../common/AutoGrid';
 import { AvatarEditorGridColorItem } from '../../common/AvatarEditorGridColorItem';
 import { CategoryData } from '../../common/CategoryData';
@@ -16,6 +16,7 @@ export interface AvatarEditorPaletteSetViewProps
 export const AvatarEditorPaletteSetView: FC<AvatarEditorPaletteSetViewProps> = props =>
 {
     const { model = null, category = null, paletteSet = [], paletteIndex = -1 } = props;
+    const elementRef = useRef<HTMLDivElement>(null);
 
     const selectColor = useCallback((item: AvatarEditorGridColorItem) =>
     {
@@ -26,8 +27,16 @@ export const AvatarEditorPaletteSetView: FC<AvatarEditorPaletteSetViewProps> = p
         model.selectColor(category.name, index, paletteIndex);
     }, [ model, category, paletteSet, paletteIndex ]);
 
+    useEffect(() =>
+    {
+        if(!model || !category || !elementRef || !elementRef.current) return;
+
+        elementRef.current.scrollTop = 0;
+    }, [ model, category ]);
+
+
     return (
-        <AutoGrid gap={ 1 } columnCount={ 5 } columnMinWidth={ 30 }>
+        <AutoGrid innerRef={ elementRef } columnCount={ 3 } columnMinHeight={ 50 }>
             { (paletteSet.length > 0) && paletteSet.map((item, index) =>
                 <AvatarEditorPaletteSetItem key={ index } colorItem={ item } onClick={ event => selectColor(item) } />) }
         </AutoGrid>
