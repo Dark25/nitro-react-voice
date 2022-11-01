@@ -1,6 +1,7 @@
 export * from './achievements';
 export * from './campaign';
 export * from './catalog';
+export * from './chat-history';
 export * from './core';
 export * from './friends';
 export * from './GetRendererVersion';
