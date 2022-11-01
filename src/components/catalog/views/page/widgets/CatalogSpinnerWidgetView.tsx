@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC } from 'react';
-import { LocalizeText } from '../../../../../api';
+import { CalculateDiscount, LocalizeText } from '../../../../../api';
 import { Flex, Text } from '../../../../../common';
 import { useCatalog } from '../../../../../hooks';
 
@@ -21,11 +21,18 @@ export const CatalogSpinnerWidgetView: FC<{}> = props =>
 
         if(value === quantity) return;
 
+        const totalDiscount = CalculateDiscount(value, currentOffer?.priceInCredits, currentOffer?.priceInActivityPoints);
+
+
         setPurchaseOptions(prevValue =>
         {
             const newValue = { ...prevValue };
 
             newValue.quantity = value;
+            newValue.discount = totalDiscount.total_price_discount;
+            newValue.discountPoints = totalDiscount.total_points_discount;
+            newValue.amountFree = totalDiscount.total_amount_free_serie;
+            newValue.isDiscount = totalDiscount.isDiscounting;
 
             return newValue;
         });

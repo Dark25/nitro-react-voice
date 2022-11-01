@@ -1,3 +1,4 @@
+export * from './CalculateDiscount';
 export * from './CloneObject';
 export * from './ColorUtils';
 export * from './LocalizeBadgeDescription';

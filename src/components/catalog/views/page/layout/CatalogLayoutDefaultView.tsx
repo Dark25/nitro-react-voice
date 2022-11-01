@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { GetConfiguration, ProductTypeEnum } from '../../../../../api';
-import { Base, Column, Flex, Grid, Text } from '../../../../../common';
+import { Base, Column, Flex, Grid, Text,LayoutCatalogueDiscountView } from '../../../../../common';
 import { useCatalog } from '../../../../../hooks';
 import { CatalogHeaderView } from '../../catalog-header/CatalogHeaderView';
 import { CatalogAddOnBadgeWidgetView } from '../widgets/CatalogAddOnBadgeWidgetView';
@@ -15,7 +15,7 @@ import { CatalogLayoutProps } from './CatalogLayout.types';
 export const CatalogLayoutDefaultView: FC<CatalogLayoutProps> = props =>
 {
     const { page = null } = props;
-    const { currentOffer = null,currentPage } = useCatalog();
+    const { currentOffer = null,currentPage,purchaseOptions = null } = useCatalog();
 
     return (
         <>
@@ -39,6 +39,9 @@ export const CatalogLayoutDefaultView: FC<CatalogLayoutProps> = props =>
                         </Base>
                         <Column grow gap={ 1 }>
                             <Text style={{color: "var(--test-galaxytext)"}} variant="none" grow truncate>{ currentOffer.localizationName }</Text>
+                            { (purchaseOptions?.isDiscount) &&
+                                <LayoutCatalogueDiscountView amountFree={ purchaseOptions?.amountFree } />
+                            }
                             <Flex justifyContent="between">
                                 <Column gap={ 1 }>
                                     <CatalogSpinnerWidgetView />

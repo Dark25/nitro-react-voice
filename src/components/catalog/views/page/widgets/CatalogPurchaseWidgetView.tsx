@@ -1,6 +1,6 @@
 import { PurchaseFromCatalogComposer } from '@nitrots/nitro-renderer';
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { CatalogPurchaseState, CreateLinkEvent, GetClubMemberLevel, LocalizeText, LocalStorageKeys, Offer, SendMessageComposer } from '../../../../../api';
+import { CatalogPurchaseState, CreateLinkEvent, GetClubMemberLevel, LocalizeText, LocalStorageKeys, Offer, CalculateDiscount, SendMessageComposer } from '../../../../../api';
 import { Button, LayoutLoadingSpinnerView } from '../../../../../common';
 import { CatalogEvent, CatalogInitGiftEvent, CatalogPurchasedEvent, CatalogPurchaseFailureEvent, CatalogPurchaseNotAllowedEvent, CatalogPurchaseSoldOutEvent } from '../../../../../events';
 import { DispatchUiEvent, useCatalog, useLocalStorage, usePurse, UseUiEvent } from '../../../../../hooks';
@@ -106,7 +106,7 @@ export const CatalogPurchaseWidgetView: FC<CatalogPurchaseWidgetViewProps> = pro
         return () =>
         {
             setPurchaseState(CatalogPurchaseState.NONE);
-            setPurchaseOptions({ quantity: 1, extraData: null, extraParamRequired: false, previewStuffData: null });
+            setPurchaseOptions({ quantity: 1, discount: 0, discountPoints: 0, amountFree: 0, isDiscount: false, extraData: null, extraParamRequired: false, previewStuffData: null });
         }
     }, [ currentOffer, setPurchaseOptions ]);
 
@@ -129,8 +129,17 @@ export const CatalogPurchaseWidgetView: FC<CatalogPurchaseWidgetViewProps> = pro
 
     const PurchaseButton = () =>
     {
-        const priceCredits = (currentOffer.priceInCredits * purchaseOptions.quantity);
-        const pricePoints = (currentOffer.priceInActivityPoints * purchaseOptions.quantity);
+       let totalDiscount = 0;
+        let totalDiscountPoints = 0;
+
+        if (purchaseOptions?.isDiscount)
+        {
+            totalDiscount = CalculateDiscount(purchaseOptions.quantity, currentOffer.priceInCredits, currentOffer.priceInActivityPoints).total_price_discount;
+            totalDiscountPoints = CalculateDiscount(purchaseOptions.quantity, currentOffer.priceInCredits, currentOffer.priceInActivityPoints).total_points_discount;
+        }
+
+        const priceCredits = (purchaseOptions?.isDiscount ? totalDiscount : currentOffer.priceInCredits * purchaseOptions.quantity);
+        const pricePoints = (purchaseOptions?.isDiscount ? totalDiscountPoints : currentOffer.priceInActivityPoints * purchaseOptions.quantity);
 
         if(GetClubMemberLevel() < currentOffer.clubLevel) return <Button variant="danger" disabled>{ LocalizeText('catalog.alert.hc.required') }</Button>;
 

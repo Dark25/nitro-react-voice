@@ -6,4 +6,8 @@ export interface IPurchaseOptions
     extraData?: string;
     extraParamRequired?: boolean;
     previewStuffData?: IObjectData;
+    discount?: number;
+    discountPoints?: number;
+    amountFree?: number;
+    isDiscount?: boolean;
 }

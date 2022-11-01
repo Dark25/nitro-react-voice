@@ -1,6 +1,7 @@
 export * from './LayoutAvatarImageView';
 export * from './LayoutBackgroundImage';
 export * from './LayoutBadgeImageView';
+export * from './LayoutCatalogueDiscountView';
 export * from './LayoutCurrencyIcon';
 export * from './LayoutFurniIconImageView';
 export * from './LayoutFurniImageView';
