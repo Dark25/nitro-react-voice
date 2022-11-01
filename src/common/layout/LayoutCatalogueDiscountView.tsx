@@ -23,7 +23,7 @@ export const LayoutCatalogueDiscountView: FC<LayoutCatalogueDiscountViewProps> =
     return (
         <>
             <Flex alignItems="center" gap={ 1 }>
-                <Text variant="black" small wrap style={ { width: '100px', backgroundColor: '#91D17B', fontStyle: 'italic' } }>{ amountFree + ' ' + LocalizeText('groupprofile.joining_policy_settings.free') }</Text>
+                <Text variant="black" small wrap style={ { width: '100px', backgroundColor: '#91D17B', fontStyle: 'italic' } }>{ amountFree + ' ' + LocalizeText('catalog.purchase.price.none') }</Text>
                 <Base classNames={ getClassNames } { ...rest }>{ children }</Base>
             </Flex>
         </>
