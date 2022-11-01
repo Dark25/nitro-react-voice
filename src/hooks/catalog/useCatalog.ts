@@ -356,7 +356,7 @@ const useCatalogState = () =>
 
     const openPageById = useCallback((id: number) =>
     {
-        setSearchResult(null);
+        if(id !== -1) setSearchResult(null);
 
         if(!isVisible)
         {
