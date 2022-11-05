@@ -1,6 +1,6 @@
 import { FC, MouseEvent, useCallback, useEffect, useState } from 'react';
 import { Overlay, Popover } from 'react-bootstrap';
-import { RoomWidgetChatMessage } from '../../../../api';
+import { RoomWidgetChatMessage, GetSessionDataManager } from '../../../../api';
 import { Base, Grid, NitroCardContentView } from '../../../../common';
 import { useRoomContext } from '../../RoomContext';
 
@@ -10,6 +10,7 @@ export const ChatInputEmojisSelectorView: FC<{}> = props =>
     const [ selectorVisible, setSelectorVisible ] = useState(false);
     const [ emojis, setEmojis ] = useState(null);
     const { eventDispatcher = null, widgetHandler = null } = useRoomContext();
+    const [ chatStyleId, setChatStyleId ] = useState(GetSessionDataManager().chatStyle);
 
     useEffect(() =>
     {
@@ -26,7 +27,7 @@ export const ChatInputEmojisSelectorView: FC<{}> = props =>
 
     const sendEmoji = (event: MouseEvent<HTMLElement>, key: string) =>
     {
-        sendChat(key, RoomWidgetChatMessage.CHAT_DEFAULT, '', 0)
+        sendChat(key, RoomWidgetChatMessage.CHAT_DEFAULT, '', chatStyleId)
         let visible = true;
 
         setSelectorVisible(prevValue =>
@@ -36,14 +37,14 @@ export const ChatInputEmojisSelectorView: FC<{}> = props =>
             return visible;
         });
 
-        console.log("xdd");
+    
 
         if(visible) setTarget((event.target as (EventTarget & HTMLElement)));
     }
 
     const sendChat = useCallback((text: string, chatType: number, recipientName: string = '', styleId: number = 0) =>
     {
-        widgetHandler.processWidgetMessage(new RoomWidgetChatMessage(RoomWidgetChatMessage.MESSAGE_CHAT, text, chatType, recipientName, styleId));
+        widgetHandler.processWidgetMessage(new RoomWidgetChatMessage(RoomWidgetChatMessage.MESSAGE_CHAT, text, chatType, recipientName, chatStyleId));
         setSelectorVisible(false)
     }, [ widgetHandler ]);
 

@@ -12,3 +12,4 @@ export * from './ProductImageUtility';
 export * from './Randomizer';
 export * from './RoomChatFormatter';
 export * from './SoundNames';
+export * from './FriendChatFormatter';

@@ -1,11 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FC, MouseEvent, useCallback, useEffect, useState } from 'react';
+import { useRoomContext } from 'components/room/RoomContext';
+import { FC, MouseEvent, useCallback, useEffect, useState,  } from 'react';
 import { Button, Overlay, Popover } from 'react-bootstrap';
-import { LocalizeText, RoomWidgetChatMessage } from '../../../../api';
+import { LocalizeText, SendMessageComposer,GetUserProfile } from '../../../../api';
 import { Base, Flex, Grid, NitroCardContentView } from '../../../../common';
-import { useRoomContext } from '../../RoomContext';
+import { FollowFriendMessageComposer, ILinkEventTracker } from '@nitrots/nitro-renderer';
+import { useMessenger } from 'hooks';
 
-export const ChatInputStickersSelectorView: FC<{}> = props =>
+
+export const ChatInputStickersFriendSelectorView: FC<{}> = props =>
 {
     const [ target, setTarget ] = useState<(EventTarget & HTMLElement)>(null);
     const [ selectorVisible, setSelectorVisible ] = useState(false);
@@ -14,6 +17,9 @@ export const ChatInputStickersSelectorView: FC<{}> = props =>
     const [ showNativeStickers, setShowNativeStickers ] = useState(true)
     const [ showGiphyStickers, setShowGiphyStickers ] = useState(false)
     const { eventDispatcher = null, widgetHandler = null } = useRoomContext();
+    const { visibleThreads = [], activeThread = null, getMessageThread = null, sendMessage = null, setActiveThreadId = null, closeThread = null } = useMessenger();
+    const followFriend = () => (activeThread && activeThread.participant && SendMessageComposer(new FollowFriendMessageComposer(activeThread.participant.id)));
+    const openProfile = () => (activeThread && activeThread.participant && GetUserProfile(activeThread.participant.id));
 
     var evadeClosing = false;
     
@@ -38,7 +44,7 @@ export const ChatInputStickersSelectorView: FC<{}> = props =>
 
     function sendSticker(sticker){
         const stickerArgs = sticker.split(".gif");
-        sendChat(stickerArgs[0], RoomWidgetChatMessage.CHAT_DEFAULT, '', 0)
+        sendMessage(activeThread, stickerArgs[0]);
     }
 
     function NativeStickers(){
@@ -61,13 +67,7 @@ export const ChatInputStickersSelectorView: FC<{}> = props =>
             </Grid>
         );
     }
-
-    const sendChat = useCallback((text: string, chatType: number, recipientName: string = '', styleId: number = 0) =>
-    {
-        widgetHandler.processWidgetMessage(new RoomWidgetChatMessage(RoomWidgetChatMessage.MESSAGE_CHAT, text, chatType, recipientName, styleId));
-        setSelectorVisible(false)
-    }, [ widgetHandler ]);
-
+//firend chat send stickers
     const toggleSelector = (event: MouseEvent<HTMLElement>) =>
     {
         if(evadeClosing) return;

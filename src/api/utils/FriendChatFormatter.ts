@@ -39,7 +39,7 @@ function encodeHTML(str: string)
 }
 
 
-export function RoomChatFormatter(content: string, styleId: number): string
+export function FriendChatFormatter(content: string): string
 {
     let result = '';
 
@@ -55,7 +55,7 @@ export function RoomChatFormatter(content: string, styleId: number): string
         content = "kekw";
     if (content.toLowerCase().includes("<script"))
         content = "kekw";
-        content = encodeHTML(content);
+      
     if(content.includes("giphy.com/media")){
         content = "<img src='" + content + ".gif' style='max-width: 47px; object-fit: contain;'/>";
     }

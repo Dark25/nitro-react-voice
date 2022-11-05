@@ -14,6 +14,7 @@ export class MessengerThreadChat
 
     constructor(senderId: number, message: string, secondsSinceSent: number = 0, extraData: string = null, type: number = 0)
     {
+        
         this._type = type;
         this._senderId = senderId;
         this._message = message;

@@ -4,6 +4,7 @@ import { FC, KeyboardEvent, useEffect, useRef, useState } from 'react';
 import { AddEventLinkTracker, GetUserProfile, LocalizeText, RemoveLinkEventTracker, SendMessageComposer } from '../../../../api';
 import { Base, Button, ButtonGroup, Column, Flex, Grid, LayoutAvatarImageView, LayoutBadgeImageView, LayoutGridItem, LayoutItemCountView, NitroCardContentView, NitroCardHeaderView, NitroCardView, Text } from '../../../../common';
 import { useMessenger } from '../../../../hooks';
+import { ChatInputStickersFriendSelectorView } from './ChatInputStickersFriendSelectorView';
 import { FriendsMessengerThreadView } from './messenger-thread/FriendsMessengerThreadView';
 
 export const FriendsMessengerView: FC<{}> = props =>
@@ -156,9 +157,11 @@ export const FriendsMessengerView: FC<{}> = props =>
                                 </Column>
                                 <Flex gap={ 1 }>
                                     <input type="text" className="form-control form-control-sm" maxLength={ 255 } placeholder={ LocalizeText('messenger.window.input.default', [ 'FRIEND_NAME' ], [ activeThread.participant.name ]) } value={ messageText } onChange={ event => setMessageText(event.target.value) } onKeyDown={ onKeyDown } />
+                                    <ChatInputStickersFriendSelectorView /> 
                                     <Button variant="success" onClick={ send }>
                                         { LocalizeText('widgets.chatinput.say') }
                                     </Button>
+                                    
                                 </Flex>
                             </> }
                     </Column>
